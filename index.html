@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valutkalkulator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Valutkalkulator</h1>
+    </header>
+
+    <main id="app">
+        <form @submit.prevent="convert">
+            <p>Fra:</p>
+            <!-- Top 10 -->
+            <select v-model="base">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="JPY">JPY</option>
+                <option value="GBP">GBP</option>
+                <option value="AUD">AUD</option>
+                <option value="CAD">CAD</option>
+                <option value="CHF">CHF</option>
+                <option value="CNY">CNY</option>
+                <option value="KRW">KRW</option>
+                <option value="INR">INR</option>
+            </select>
+
+            <p>Til:</p>
+            <!-- Top 10 -->
+            <select v-model="target">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="JPY">JPY</option>
+                <option value="GBP">GBP</option>
+                <option value="AUD">AUD</option>
+                <option value="CAD">CAD</option>
+                <option value="CHF">CHF</option>
+                <option value="CNY">CNY</option>
+                <option value="KRW">KRW</option>
+                <option value="INR">INR</option>
+            </select>
+
+            <label for="amount">Mengde:</label>
+            <input v-model="amount" id="amount" type="number" autocomplete="on" placeholder="Nummer..." required>
+
+            <button type="submit">Konverter</button>
+        </form>
+
+        <div id="result">{{ result }}</div>
+    </main>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

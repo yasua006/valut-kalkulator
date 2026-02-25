@@ -1,0 +1,62 @@
+:root {
+    /* --accent: ; */
+    --bg: #fff;
+    --fg: #444
+}
+*, *::after, *::before {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0
+}
+html {
+    font-size: 16px;
+    scroll-behavior: smooth
+}
+@supports (scrollbar-gutter: stable) {
+    html {
+        scrollbar-gutter: stable
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto
+    }
+}
+body {
+    background-color: var(--bg);
+    color: var(--fg)
+}
+body, main {
+    max-width: 100%;
+    min-height: 100svh
+}
+header h1 {
+    font-size: 40px;
+    margin-bottom: 4rem
+}
+h2 {
+    font-size: 32px
+}
+h3 {
+    font-size: 24px
+}
+form {
+    display: flex;
+    flex-direction: column
+}
+button[type="submit"],
+#result {
+    margin-top: 2rem
+}
+header,
+#result {
+    text-align: center
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* --accent: ; */
+        --bg: #444;
+        --fg: #fff
+    }
+}
