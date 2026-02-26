@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const app = createApp({
         setup() {
-            const base = ref("USD");
-            const target = ref("EUR");
+            const base = ref("USD (Amerikanske Dollar) 🇺🇸");
+            const target = ref("EUR (Euro) 🇪🇺");
             const amount = ref(1000);
             const result = ref(null);
             
