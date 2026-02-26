@@ -14,7 +14,7 @@
     </header>
 
     <main id="app">
-        <form @submit.prevent="convert">
+        <form @submit.prevent="convert" method="get">
             <p>Fra:</p>
             <!-- Top 10 -->
             <select v-model="base">
@@ -33,16 +33,26 @@
             <p>Til:</p>
             <!-- Top 10 -->
             <select v-model="target">
-
+                <option value="USD">USD (Amerikanske Dollar) 🇺🇸</option>
+                <option value="EUR">EUR (Euro) 🇪🇺</option>
+                <option value="JPY">JPY (Japanske Yen) 🇯🇵</option>
+                <option value="GBP">GBP (Britisk Sterling) 🇬🇧</option>
+                <option value="AUD">AUD (Australske Dollar) 🇦🇺</option>
+                <option value="CAD">CAD (Canadiske Dollar) 🇨🇦</option>
+                <option value="CHF">CHF (Swiss Franc) 🇨🇭</option>
+                <option value="CNY">CNY (Kinesisk Yuan) 🇨🇳</option>
+                <option value="KRW">KRW (Sørkoreansk Won) 🇰🇷</option>
+                <option value="INR">INR (Indisk Rupee) 🇮🇳</option>
             </select>
 
             <label for="amount">Mengde:</label>
             <input v-model="amount" id="amount" type="number" autocomplete="on" placeholder="Nummer..." required>
 
-            <button type="submit">Konverter</button>
+            <button class="spaced-top" type="submit">Konverter</button>
         </form>
 
-        <div id="result">{{ result }}</div>
+        <div class="spaced-top">{{ result }}</div>
+        <div class="spaced-top">{{ previous_result }}</div>
     </main>
 
     <script src="script.js" defer></script>
