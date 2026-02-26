@@ -1,5 +1,5 @@
 :root {
-    /* --accent: ; */
+    --accent: #b1ffd7;
     --bg: #fff;
     --fg: #444
 }
@@ -35,30 +35,35 @@ header h1 {
     font-size: 40px;
     margin-bottom: 4rem
 }
-h2 {
-    font-size: 32px
-}
-h3 {
-    font-size: 24px
-}
-.spaced-top-bottom {
-    margin: 2rem 0
-}
-.spaced-top {
-    margin-top: 2rem
-}
-form {
+/* h2 {font-size: 32px}
+h3 {font-size: 24px} */
+.spaced-top-bottom {margin: 2rem 0}
+.spaced-top {margin-top: 2rem}
+main form {
     display: flex;
     flex-direction: column;
     gap: 1.25rem
 }
+main input,
+main select {
+    background-color: var(--accent)
+}
+main input,
+main select {
+    color: var(--fg)
+}
+main button[type="submit"] {
+    background-color: var(--accent);
+    color: var(--fg);
+    cursor: pointer
+}
 header,
-.results {
+main .results {
     text-align: center
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        /* --accent: ; */
+        --accent: #1a4f34;
         --bg: #444;
         --fg: #fff
     }

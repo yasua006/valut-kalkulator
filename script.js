@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const storage_key = "Previous conversion result";
     const convert_curr = async (base, target, amount) => {
         const EXCHANGE_RATE_API_KEY = "c3bebc3cf92257a19192d324";
-        const res = await fetch(`https://v6.exchangerate-api.com/v6/${EXCHANGE_RATE_API_KEY}/pair/${base}/${target}/${amount}`);
+        const res = await fetch(`https://v6.exchangerate-api.com/v6/${EXCHANGE_RATE_API_KEY}/pair/${base}/${target}/${amount}`, { method: 'GET' });
         if (!res.ok) {
             throw new Error("Bad API response!");
         }
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // console.log(target);
                     // console.log(target.value);
                     localStorage.removeItem(storage_key);
-                    localStorage.setItem(storage_key, result.value);
+                    localStorage.setItem(storage_key, result.value.replaceAll("Resultat: ", ""));
                 }
                 catch (err) {
                     throw new Error(`Can't convert! ${err}`);
