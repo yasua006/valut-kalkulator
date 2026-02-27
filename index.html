@@ -17,7 +17,7 @@
         <form @submit.prevent="convert" method="get">
             <p>Fra:</p>
             <!-- Top 10 -->
-            <select v-model="base">
+            <select v-model="base" class="spaced-bottom">
                 <option value="USD">USD (Amerikanske Dollar) 🇺🇸</option>
                 <option value="EUR">EUR (Euro) 🇪🇺</option>
                 <option value="JPY">JPY (Japanske Yen) 🇯🇵</option>
@@ -32,7 +32,7 @@
 
             <p>Til:</p>
             <!-- Top 10 -->
-            <select v-model="target">
+            <select v-model="target" class="spaced-bottom">
                 <option value="USD">USD (Amerikanske Dollar) 🇺🇸</option>
                 <option value="EUR">EUR (Euro) 🇪🇺</option>
                 <option value="JPY">JPY (Japanske Yen) 🇯🇵</option>
@@ -57,6 +57,6 @@
         </div>
     </main>
 
-    <script src="script.js" defer></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

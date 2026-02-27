@@ -1,63 +1,44 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const storage_key: string = "Previous conversion result";
+import { convert_curr } from './modules/convert-curr';
 
-    const convert_curr = async(base: string, target: string, amount: number): Promise<number> => {
-        const EXCHANGE_RATE_API_KEY: string = "c3bebc3cf92257a19192d324";
-        const res: Response = await fetch(`https://v6.exchangerate-api.com/v6/${EXCHANGE_RATE_API_KEY}/pair/${base}/${target}/${amount}`,
-            {method: 'GET'}
-        );
+const storage_key: string = "Previous conversion result";
 
-        if (!res.ok) {
-            throw new Error("Bad API response!");
-        }
+const {createApp, ref} = Vue;
 
-        const data = await res.json();
+const app = createApp({
+    setup() {
+        const base = ref("");
+        const target = ref("");
+        const amount = ref(1000);
+        const result = ref(null);
+        const previous_result = ref(
+            "Førrige resultat: " + localStorage.getItem(storage_key));
 
-        if (!data) {
-            throw new Error("No JSON data!");
-        }
+        const convert = async(): Promise<void> => {
+            try {
+                result.value = "Resultat: " + await convert_curr(
+                    base.value, target.value, amount.value);
+                
+                // console.log(base);
+                // console.log(base.value);
+                // console.log(target);
+                // console.log(target.value);
 
-        return data.conversion_result;
-    };
+                localStorage.removeItem(storage_key);
+                localStorage.setItem(storage_key, result.value.replaceAll("Resultat: ", ""));
+            } catch (err) {
+                throw new Error(`Can't convert! ${err}`);
+            }
+        };
 
-    const {createApp, ref} = Vue;
+        return {
+            base,
+            target,
+            amount,
+            result,
+            previous_result,
+            convert
+        };
+    }
+})
 
-    const app = createApp({
-        setup() {
-            const base = ref("");
-            const target = ref("");
-            const amount = ref(1000);
-            const result = ref(null);
-            const previous_result = ref(
-                "Førrige resultat: " + localStorage.getItem(storage_key));
-
-            const convert = async(): Promise<void> => {
-                try {
-                    result.value = "Resultat: " + await convert_curr(
-                        base.value, target.value, amount.value);
-                    
-                    // console.log(base);
-                    // console.log(base.value);
-                    // console.log(target);
-                    // console.log(target.value);
-
-                    localStorage.removeItem(storage_key);
-                    localStorage.setItem(storage_key, result.value.replaceAll("Resultat: ", ""));
-                } catch (err) {
-                    throw new Error(`Can't convert! ${err}`);
-                }
-            };
-
-            return {
-                base,
-                target,
-                amount,
-                result,
-                previous_result,
-                convert
-            };
-        }
-    })
-
-    app.mount('#app');
-});
+app.mount('#app');

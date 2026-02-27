@@ -1,5 +1,5 @@
 :root {
-    --accent: #b1ffd7;
+    --accent: #1a4f34;
     --bg: #fff;
     --fg: #444
 }
@@ -11,6 +11,7 @@
 }
 html {
     font-size: 16px;
+    overflow-x: clip;
     scroll-behavior: smooth
 }
 @supports (scrollbar-gutter: stable) {
@@ -39,23 +40,38 @@ header h1 {
 h3 {font-size: 24px} */
 .spaced-top-bottom {margin: 2rem 0}
 .spaced-top {margin-top: 2rem}
+.spaced-bottom {margin-bottom: 2rem}
+@media (prefers-reduced-motion: reduce) {
+    main button[type="submit"] {
+        transition: none
+    }
+}
 main form {
     display: flex;
-    flex-direction: column;
-    gap: 1.25rem
+    flex-direction: column
 }
-main input,
-main select {
-    background-color: var(--accent)
+main form:not(button[type="submit"]) {
+    align-items: center;
+    display: flex;
+    justify-content: center
 }
-main input,
-main select {
-    color: var(--fg)
+main form *:not(button[type="submit"]) {
+    padding: 0.5rem;
+    width: 50%
 }
 main button[type="submit"] {
-    background-color: var(--accent);
+    background: transparent;
+    border: 0.15rem solid var(--accent);
+    border-radius: 2rem;
     color: var(--fg);
-    cursor: pointer
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 20%;
+    &:hover,
+    &:focus-visible {
+        transform: scaleY(1.2)
+    }
 }
 header,
 main .results {
@@ -63,7 +79,7 @@ main .results {
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        --accent: #1a4f34;
+        --accent: #b1ffd7;
         --bg: #444;
         --fg: #fff
     }
