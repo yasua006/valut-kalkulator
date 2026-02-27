@@ -16,7 +16,7 @@ const app = createApp({
         const convert = async(): Promise<void> => {
             try {
                 result.value = "Resultat: " + await convert_curr(
-                    base.value, target.value, amount.value);
+                    base.value, target.value, amount.value) + target.value;
                 
                 // console.log(base);
                 // console.log(base.value);

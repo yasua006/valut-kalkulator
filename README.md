@@ -1,4 +1,4 @@
-# ValutKalkulator
+# Valutkalkulator
 
 ## Få med node_modules
 ```sh

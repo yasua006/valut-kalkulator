@@ -10,7 +10,7 @@ const app = createApp({
         const previous_result = ref("Førrige resultat: " + localStorage.getItem(storage_key));
         const convert = async () => {
             try {
-                result.value = "Resultat: " + await convert_curr(base.value, target.value, amount.value);
+                result.value = "Resultat: " + await convert_curr(base.value, target.value, amount.value) + target.value;
                 // console.log(base);
                 // console.log(base.value);
                 // console.log(target);
