@@ -36,8 +36,8 @@ header h1 {
     font-size: 40px;
     margin-bottom: 4rem
 }
-/* h2 {font-size: 32px}
-h3 {font-size: 24px} */
+h2 {font-size: 32px}
+/* h3 {font-size: 24px} */
 .spaced-top-bottom {margin: 2rem 0}
 .spaced-top {margin-top: 2rem}
 .spaced-bottom {margin-bottom: 2rem}
@@ -46,13 +46,16 @@ h3 {font-size: 24px} */
         transition: none
     }
 }
-main form {
+main form,
+main form:not(button[type="submit"]),
+main div.decimals-setting {
     display: flex;
+}
+main form {
     flex-direction: column
 }
 main form:not(button[type="submit"]) {
     align-items: center;
-    display: flex;
     justify-content: center
 }
 main form *:not(button[type="submit"]) {
@@ -74,7 +77,7 @@ main button[type="submit"] {
     }
 }
 header,
-main .results {
+main div.results {
     text-align: center
 }
 @media (prefers-color-scheme: dark) {
