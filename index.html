@@ -15,7 +15,9 @@
 
     <main id="app">
         <form @submit.prevent="convert" method="get">
-            <p>Fra:</p>
+            <p class="spaced-bottom">Konverter valutaer. For eksempel, USD til EUR.</p>
+
+            <p>Fra valut:</p>
             <!-- Top 10 -->
             <select v-model="base" class="spaced-bottom" required>
                 <option value="USD">USD (Amerikanske Dollar) 🇺🇸</option>
@@ -30,7 +32,7 @@
                 <option value="INR">INR (Indisk Rupee) 🇮🇳</option>
             </select>
 
-            <p>Til:</p>
+            <p>Til valut:</p>
             <!-- Top 10 -->
             <select v-model="target" class="spaced-bottom" required>
                 <option value="USD">USD (Amerikanske Dollar) 🇺🇸</option>
@@ -49,13 +51,13 @@
             <input v-model="amount" id="amount" type="number" autocomplete="on" placeholder="Nummer..." required>
 
             <section class="spaced-top" aria-labelledby="settings-heading">
-                <h2 class="spaced-bottom" id="settings-heading">Innstillinger</h2>
+                <h2 class="spaced-bottom" id="settings-heading">Innstillinger (gjelder ny resultater)</h2>
                 
                 <div class="decimals-setting">
                     <p>Desimaler (hvis fant):</p>
                     <select v-model="with_decimals_str">
-                        <option value="ja">ja</option>
-                        <option value="nei">nei</option>
+                        <option value="yes">ja</option>
+                        <option value="no">nei</option>
                     </select>
                 </div>
             </section>

@@ -8,7 +8,7 @@ const app = createApp({
         const amount = ref(1000);
         const result = ref(null);
         const previous_result = ref("Førrige resultat: " + localStorage.getItem(storage_key));
-        const with_decimals_str = ref("ja");
+        const with_decimals_str = ref("");
         const convert = async () => {
             try {
                 result.value = "Resultat: " + await convert_curr(base.value, target.value, amount.value, with_decimals_str.value) + target.value;

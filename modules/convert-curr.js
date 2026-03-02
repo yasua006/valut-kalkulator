@@ -10,12 +10,12 @@ export const convert_curr = async (base, target, amount, with_decimals_str) => {
     }
     // console.info(Math.round(data.conversion_result));
     // console.info(Math.floor(data.conversion_result));
-    if (with_decimals_str === "nei") {
-        console.info("No decimals wish");
+    if (with_decimals_str === "no") {
+        // console.info("No decimals wish");
         return Math.trunc(data.conversion_result);
     }
     else {
-        console.info("Decimals wish");
+        // console.info("Decimals wish");
         return data.conversion_result;
     }
 };

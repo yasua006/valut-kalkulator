@@ -12,7 +12,7 @@ const app = createApp({
         const result = ref(null);
         const previous_result = ref(
             "Førrige resultat: " + localStorage.getItem(storage_key));
-        const with_decimals_str = ref("ja");
+        const with_decimals_str = ref("");
 
         const convert = async(): Promise<void> => {
             try {
